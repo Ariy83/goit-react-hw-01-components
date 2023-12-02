@@ -1,13 +1,6 @@
 import PropTypes from 'prop-types'
-import { StatisticItemStyled } from "./StatisticItemStyled";
-import { StyledStatList, StyledStatistics, StyledTitle } from "./Statistics.styled";
-
-// const liColor = getRandomHexColor();
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215)
-//     .toString(16)
-//     .padStart(6, 0)}`;
-// }
+import { StyledStatItem, StyledStatList, StyledStatistics, StyledTitle } from "./Statistics.styled";
+// import { StatisticItemStyled } from "./StatisticItemStyled";
 
 export const StatisticsStyled = ({ title, stats = [] }) => {
     return (
@@ -15,13 +8,22 @@ export const StatisticsStyled = ({ title, stats = [] }) => {
     {title && <StyledTitle>{title.toUpperCase()}</StyledTitle>}
     <StyledStatList>
           {stats.map(({ id, label, percentage }) => (
-      
-        <StatisticItemStyled
-          key={id}
-          label={label} percentage={percentage}
+            <StyledStatItem
+              key={id}
+              style={{ backgroundColor: `#${Math.floor(Math.random() * 16777215)
+                .toString(16)
+                .padStart(6, 0)}` }}
+    >
+      <span>{label}</span>
+      <span>{percentage}</span>
+            </StyledStatItem>
+            
+        // <StatisticItemStyled
+        //   key={id}
+        //   label={label} percentage={percentage}
           // {...rest}
           // style={{backgroundColor: `${liColor}`}}
-        />
+        // />
       
     ))}            
     </StyledStatList>
@@ -40,3 +42,10 @@ StatisticsStyled.propTypes = {
     })
   ),
 }
+
+// const liColor = getRandomHexColor();
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215)
+//     .toString(16)
+//     .padStart(6, 0)}`;
+// }

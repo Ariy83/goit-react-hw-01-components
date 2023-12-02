@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-const liColor = getRandomHexColor();
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215)
-    .toString(16)
-    .padStart(6, 0)}`;
-}
-
 export const StyledStatistics = styled.section`
   border-radius: 4px;
   width: 400px;
@@ -34,7 +27,6 @@ export const StyledStatList = styled.ul`
   border: none;
 `;
 export const StyledStatItem = styled.li`
-  background-color: ${liColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
